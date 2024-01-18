@@ -15,7 +15,7 @@ from langchain.llms import VertexAI
 from vectorDB import VectorStorage  
 from langchain.schema import format_document  
 
-template = """Answer the question at the end based only on the following context:
+template = """Answer the question in at the end based only on the following context, try to answer in markdown directly:
 {context}
 Chat History:
 {chat_history}
@@ -51,7 +51,7 @@ class LLMChain:
             REGION = 'us-central1'
             BUCKET = 'gs://zeta-yen-319702-temp/'
 
-            os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '../svc-gcp-key.py'
+            os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'svc-gcp-key.json'
 
             vertexai.init(
                 project=PROJECT_ID,
